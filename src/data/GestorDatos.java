@@ -1,25 +1,16 @@
 package data;
 
+import model.Guia;
 import model.Tour;
+import util.Validador;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Gestiona la lectura de datos desde archivos de texto.
- * Convierte cada linea valida del archivo en un objeto Tour.
- */
 public class GestorDatos {
 
-    /**
-     * Lee un archivo separado por punto y coma y carga sus datos en un ArrayList.
-     * El formato esperado por linea es: nombre;tipo;precio
-     *
-     * @param rutaArchivo ruta del archivo tours.txt
-     * @return lista de tours cargados desde el archivo
-     */
     public ArrayList<Tour> cargarTours(String rutaArchivo) {
         ArrayList<Tour> tours = new ArrayList<>();
 
@@ -28,24 +19,31 @@ public class GestorDatos {
             Scanner lector = new Scanner(archivo);
 
             while (lector.hasNextLine()) {
-                String linea = lector.nextLine();
+                String linea = lector.nextLine().trim();
+                if (linea.isEmpty()) continue;
+
                 String[] datos = linea.split(";");
 
-                if (datos.length == 3) {
-                    String nombre = datos[0];
-                    String tipo = datos[1];
-                    int precio = Integer.parseInt(datos[2]);
+                if (datos.length == 6) {
+                    String nombre = datos[0].trim();
+                    String tipo = datos[1].trim();
+                    int precio = Integer.parseInt(datos[2].trim());
+                    String idGuia = datos[3].trim();
+                    String nombreGuia = datos[4].trim();
+                    String especialidad = datos[5].trim();
 
-                    Tour tour = new Tour(nombre, tipo, precio);
-                    tours.add(tour);
+                    if (Validador.esTextoValido(nombre) && Validador.esPrecioValido(precio)) {
+                        Guia guia = new Guia(idGuia, nombreGuia, especialidad);
+                        tours.add(new Tour(nombre, tipo, precio, guia));
+                    }
                 }
             }
 
             lector.close();
-        } catch (FileNotFoundException error) {
+        } catch (FileNotFoundException e) {
             System.out.println("No se encontro el archivo: " + rutaArchivo);
-        } catch (NumberFormatException error) {
-            System.out.println("Existe un precio con formato invalido en el archivo.");
+        } catch (NumberFormatException e) {
+            System.out.println("Formato de precio invalido en el archivo.");
         }
 
         return tours;
