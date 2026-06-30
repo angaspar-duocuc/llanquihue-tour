@@ -1,5 +1,0 @@
-Ruta Gastronomica;Gastronomico;25000;G001;Carlos Mendez;Gastronomia
-Paseo Lacustre;Aventura;15000;G002;Ana Soto;Excursiones
-Excursion Cultural;Cultural;12000;G002;Ana Soto;Excursiones
-Tour Personalizado;Privado;45000;G003;Luis Vega;Personalizado
-Ruta de los Volcanes;Aventura;30000;G001;Carlos Mendez;Gastronomia

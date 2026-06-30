@@ -2,54 +2,56 @@
 
 ## Descripcion
 
-Sistema de gestion para la agencia **Llanquihue Tour**, desarrollado en Java como actividad de Semana 5 de Desarrollo Orientado a Objetos I. El proyecto organiza el codigo en paquetes funcionales, aplica composicion entre clases del modelo, carga datos desde un archivo `.txt` en una coleccion `ArrayList`, y permite recorrer, filtrar y visualizar los tours por consola.
+Aplicacion basica en Java para la actividad de Semana 6 de Desarrollo Orientado a Objetos I. El proyecto modela una jerarquia de servicios turisticos para la agencia Llanquihue Tour, aplicando herencia simple, reutilizacion de atributos comunes, uso de `super(...)` y sobrescritura del metodo `toString()`.
 
-## Paquetes y clases implementadas
+## Objetivo de esta semana
+
+Representar distintos tipos de servicios turisticos mediante una superclase comun y subclases especializadas. La actividad se enfoca en disenar una jerarquia clara, organizada en paquetes y probada desde la clase `Main`.
+
+## Estructura del proyecto
 
 ```text
 src/
-├── model/
-│   ├── Tour.java        — modela un tour con nombre, tipo, precio y guia asignado (composicion)
-│   └── Guia.java        — modela un guia turistico; Tour tiene-un Guia (composicion)
 ├── data/
-│   └── GestorDatos.java — lee tours.txt linea a linea y construye objetos Tour con Guia
-├── service/
-│   └── GestorTours.java — gestiona la coleccion ArrayList<Tour>: agregar, listar, buscar
-├── util/
-│   └── Validador.java   — metodos estaticos para validar texto y precio antes de crear objetos
-├── ui/
-│   └── Main.java        — clase principal: carga datos, lista tours y aplica filtros por tipo
-└── resources/
-    └── tours.txt        — datos fuente (nombre;tipo;precio;idGuia;nombreGuia;especialidad)
+│   └── GestorServicios.java
+├── model/
+│   ├── ServicioTuristico.java
+│   ├── RutaGastronomica.java
+│   ├── PaseoLacustre.java
+│   └── ExcursionCultural.java
+└── ui/
+    └── Main.java
 ```
+
+## Clases creadas
+
+- `ServicioTuristico`: superclase con los atributos comunes `nombre` y `duracionHoras`.
+- `RutaGastronomica`: subclase que agrega el atributo `numeroDeParadas`.
+- `PaseoLacustre`: subclase que agrega el atributo `tipoEmbarcacion`.
+- `ExcursionCultural`: subclase que agrega el atributo `lugarHistorico`.
+- `GestorServicios`: clase del paquete `data` que crea dos objetos de prueba por cada subclase.
+- `Main`: clase del paquete `ui` que ejecuta el programa y muestra los servicios por consola.
 
 ## Instrucciones para ejecutar en IntelliJ IDEA
 
 1. Abrir IntelliJ IDEA.
-2. Seleccionar `Open` y abrir la carpeta `LlanquihueTourApp`.
-3. Abrir el archivo `src/ui/Main.java`.
-4. Ejecutar la clase `ui.Main` con el boton verde de ejecucion.
+2. Seleccionar `Open`.
+3. Abrir la carpeta `LlanquihueTourApp`.
+4. Abrir el archivo `src/ui/Main.java`.
+5. Ejecutar la clase `ui.Main` desde el boton verde de IntelliJ IDEA.
 
 ## Salida esperada
 
 ```text
-=== LLANQUIHUE TOUR - Sistema de Gestion ===
-
---- Catalogo completo ---
-Ruta Gastronomica | Gastronomico | $25000 | Guia: Carlos Mendez
-Paseo Lacustre | Aventura | $15000 | Guia: Ana Soto
-Excursion Cultural | Cultural | $12000 | Guia: Ana Soto
-Tour Personalizado | Privado | $45000 | Guia: Luis Vega
-Ruta de los Volcanes | Aventura | $30000 | Guia: Carlos Mendez
-
---- Tours de tipo: Aventura ---
-Paseo Lacustre | Aventura | $15000 | Guia: Ana Soto
-Ruta de los Volcanes | Aventura | $30000 | Guia: Carlos Mendez
-
---- Tours de tipo: Cultural ---
-Excursion Cultural | Cultural | $12000 | Guia: Ana Soto
+=== Servicios turisticos Llanquihue Tour ===
+RutaGastronomica{nombre='Ruta sabores del lago', duracionHoras=3.5, numeroDeParadas=4}
+RutaGastronomica{nombre='Experiencia cocina local', duracionHoras=4.0, numeroDeParadas=5}
+PaseoLacustre{nombre='Paseo por lago Llanquihue', duracionHoras=2.0, tipoEmbarcacion='Lancha turistica'}
+PaseoLacustre{nombre='Navegacion atardecer', duracionHoras=1.5, tipoEmbarcacion='Catamaran'}
+ExcursionCultural{nombre='Recorrido patrimonial Llanquihue', duracionHoras=2.5, lugarHistorico='Museo local'}
+ExcursionCultural{nombre='Historia colonos del sur', duracionHoras=3.0, lugarHistorico='Casa historica'}
 ```
 
 ## Repositorio
 
-https://github.com/angaspar-duocuc/llanquihue-tour.git
+Repositorio GitHub utilizado para la continuidad del proyecto LlanquihueTourApp.

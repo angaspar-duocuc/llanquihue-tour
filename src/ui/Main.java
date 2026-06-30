@@ -1,46 +1,26 @@
 package ui;
 
-import data.GestorDatos;
-import model.Tour;
-import service.GestorTours;
+import data.GestorServicios;
+import model.ServicioTuristico;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Clase principal de LlanquihueTourApp para la actividad de Semana 6.
+ * Ejecuta la creacion de servicios turisticos y muestra sus datos por consola.
+ */
 public class Main {
 
+    /**
+     * Punto de entrada del programa.
+     *
+     * @param args argumentos de linea de comandos
+     */
     public static void main(String[] args) {
-        System.out.println("=== LLANQUIHUE TOUR - Sistema de Gestion ===\n");
+        GestorServicios gestorServicios = new GestorServicios();
+        ServicioTuristico[] servicios = gestorServicios.crearServiciosDePrueba();
 
-        GestorDatos gestorDatos = new GestorDatos();
-        ArrayList<Tour> toursLeidos = gestorDatos.cargarTours("src/resources/tours.txt");
-
-        GestorTours gestorTours = new GestorTours();
-        for (Tour t : toursLeidos) {
-            gestorTours.agregar(t);
-        }
-
-        System.out.println("--- Catalogo completo ---");
-        gestorTours.listarTodos();
-
-        System.out.println("\n--- Tours de tipo: Aventura ---");
-        List<Tour> aventura = gestorTours.buscarPorTipo("Aventura");
-        if (aventura.isEmpty()) {
-            System.out.println("No se encontraron tours de tipo Aventura.");
-        } else {
-            for (Tour t : aventura) {
-                System.out.println(t);
-            }
-        }
-
-        System.out.println("\n--- Tours de tipo: Cultural ---");
-        List<Tour> cultural = gestorTours.buscarPorTipo("Cultural");
-        if (cultural.isEmpty()) {
-            System.out.println("No se encontraron tours de tipo Cultural.");
-        } else {
-            for (Tour t : cultural) {
-                System.out.println(t);
-            }
+        System.out.println("=== Servicios turisticos Llanquihue Tour ===");
+        for (ServicioTuristico servicio : servicios) {
+            System.out.println(servicio);
         }
     }
 }
