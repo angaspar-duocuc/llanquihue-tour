@@ -38,14 +38,26 @@ public class ExcursionCultural extends ServicioTuristico {
     }
 
     /**
+     * Muestra la informacion especifica de la excursion cultural.
+     *
+     * @return informacion completa de la excursion cultural
+     */
+    @Override
+    public String mostrarInformacion() {
+        return "ExcursionCultural{" +
+                "nombre='" + getNombre() + '\'' +
+                ", duracionHoras=" + getDuracionHoras() +
+                ", lugarHistorico='" + lugarHistorico + '\'' +
+                '}';
+    }
+
+    /**
      * Retorna la informacion completa de la excursion cultural.
      *
      * @return descripcion de la excursion cultural
      */
     @Override
     public String toString() {
-        return "ExcursionCultural{" + super.toString() +
-                ", lugarHistorico='" + lugarHistorico + '\'' +
-                '}';
+        return mostrarInformacion();
     }
 }

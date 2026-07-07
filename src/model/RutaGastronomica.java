@@ -38,14 +38,26 @@ public class RutaGastronomica extends ServicioTuristico {
     }
 
     /**
+     * Muestra la informacion especifica de la ruta gastronomica.
+     *
+     * @return informacion completa de la ruta gastronomica
+     */
+    @Override
+    public String mostrarInformacion() {
+        return "RutaGastronomica{" +
+                "nombre='" + getNombre() + '\'' +
+                ", duracionHoras=" + getDuracionHoras() +
+                ", numeroDeParadas=" + numeroDeParadas +
+                '}';
+    }
+
+    /**
      * Retorna la informacion completa de la ruta gastronomica.
      *
      * @return descripcion de la ruta gastronomica
      */
     @Override
     public String toString() {
-        return "RutaGastronomica{" + super.toString() +
-                ", numeroDeParadas=" + numeroDeParadas +
-                '}';
+        return mostrarInformacion();
     }
 }

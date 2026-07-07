@@ -1,11 +1,10 @@
 package ui;
 
 import data.GestorServicios;
-import model.ServicioTuristico;
 
 /**
- * Clase principal de LlanquihueTourApp para la actividad de Semana 6.
- * Ejecuta la creacion de servicios turisticos y muestra sus datos por consola.
+ * Clase principal de LlanquihueTourApp para la actividad de Semana 7.
+ * Ejecuta el recorrido polimorfico de servicios turisticos.
  */
 public class Main {
 
@@ -16,11 +15,8 @@ public class Main {
      */
     public static void main(String[] args) {
         GestorServicios gestorServicios = new GestorServicios();
-        ServicioTuristico[] servicios = gestorServicios.crearServiciosDePrueba();
 
         System.out.println("=== Servicios turisticos Llanquihue Tour ===");
-        for (ServicioTuristico servicio : servicios) {
-            System.out.println(servicio);
-        }
+        gestorServicios.mostrarServicios();
     }
 }

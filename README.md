@@ -2,11 +2,11 @@
 
 ## Descripcion
 
-Aplicacion basica en Java para la actividad de Semana 6 de Desarrollo Orientado a Objetos I. El proyecto modela una jerarquia de servicios turisticos para la agencia Llanquihue Tour, aplicando herencia simple, reutilizacion de atributos comunes, uso de `super(...)` y sobrescritura del metodo `toString()`.
+Aplicacion basica en Java para la actividad de Semana 7 de Desarrollo Orientado a Objetos I. El proyecto continua la jerarquia de servicios turisticos de Llanquihue Tour e incorpora una coleccion polimorfica `List<ServicioTuristico>` para almacenar, recorrer y mostrar distintos tipos de servicios desde referencias de la superclase.
 
 ## Objetivo de esta semana
 
-Representar distintos tipos de servicios turisticos mediante una superclase comun y subclases especializadas. La actividad se enfoca en disenar una jerarquia clara, organizada en paquetes y probada desde la clase `Main`.
+Aplicar polimorfismo, colecciones genericas y sobrescritura de metodos sobre la jerarquia creada anteriormente. La clase `ServicioTuristico` define el metodo `mostrarInformacion()` y cada subclase lo sobrescribe para mostrar su informacion especifica.
 
 ## Estructura del proyecto
 
@@ -23,14 +23,14 @@ src/
     └── Main.java
 ```
 
-## Clases creadas
+## Clases creadas y actualizadas
 
-- `ServicioTuristico`: superclase con los atributos comunes `nombre` y `duracionHoras`.
-- `RutaGastronomica`: subclase que agrega el atributo `numeroDeParadas`.
-- `PaseoLacustre`: subclase que agrega el atributo `tipoEmbarcacion`.
-- `ExcursionCultural`: subclase que agrega el atributo `lugarHistorico`.
-- `GestorServicios`: clase del paquete `data` que crea dos objetos de prueba por cada subclase.
-- `Main`: clase del paquete `ui` que ejecuta el programa y muestra los servicios por consola.
+- `ServicioTuristico`: superclase con los atributos comunes `nombre` y `duracionHoras`, además del método `mostrarInformacion()`.
+- `RutaGastronomica`: subclase que sobrescribe `mostrarInformacion()` y agrega `numeroDeParadas`.
+- `PaseoLacustre`: subclase que sobrescribe `mostrarInformacion()` y agrega `tipoEmbarcacion`.
+- `ExcursionCultural`: subclase que sobrescribe `mostrarInformacion()` y agrega `lugarHistorico`.
+- `GestorServicios`: clase del paquete `data` que declara una colección `List<ServicioTuristico>` y carga al menos cinco objetos de distintas subclases.
+- `Main`: clase del paquete `ui` que ejecuta el programa y muestra la información de forma polimórfica.
 
 ## Instrucciones para ejecutar en IntelliJ IDEA
 
@@ -54,4 +54,4 @@ ExcursionCultural{nombre='Historia colonos del sur', duracionHoras=3.0, lugarHis
 
 ## Repositorio
 
-Repositorio GitHub utilizado para la continuidad del proyecto LlanquihueTourApp.
+[Repositorio GitHub utilizado para la continuidad del proyecto LlanquihueTourApp.](https://github.com/angaspar-duocuc/llanquihue-tour.git)

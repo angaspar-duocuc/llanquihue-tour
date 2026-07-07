@@ -38,14 +38,26 @@ public class PaseoLacustre extends ServicioTuristico {
     }
 
     /**
+     * Muestra la informacion especifica del paseo lacustre.
+     *
+     * @return informacion completa del paseo lacustre
+     */
+    @Override
+    public String mostrarInformacion() {
+        return "PaseoLacustre{" +
+                "nombre='" + getNombre() + '\'' +
+                ", duracionHoras=" + getDuracionHoras() +
+                ", tipoEmbarcacion='" + tipoEmbarcacion + '\'' +
+                '}';
+    }
+
+    /**
      * Retorna la informacion completa del paseo lacustre.
      *
      * @return descripcion del paseo lacustre
      */
     @Override
     public String toString() {
-        return "PaseoLacustre{" + super.toString() +
-                ", tipoEmbarcacion='" + tipoEmbarcacion + '\'' +
-                '}';
+        return mostrarInformacion();
     }
 }

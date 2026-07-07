@@ -56,13 +56,25 @@ public class ServicioTuristico {
     }
 
     /**
-     * Retorna la informacion comun del servicio turistico.
+     * Muestra la informacion comun del servicio turistico.
+     * Este metodo es sobrescrito por las subclases para aplicar polimorfismo.
+     *
+     * @return informacion del servicio turistico
+     */
+    public String mostrarInformacion() {
+        return "ServicioTuristico{" +
+                "nombre='" + nombre + '\'' +
+                ", duracionHoras=" + duracionHoras +
+                '}';
+    }
+
+    /**
+     * Retorna la informacion del servicio turistico.
      *
      * @return descripcion del servicio turistico
      */
     @Override
     public String toString() {
-        return "nombre='" + nombre + '\'' +
-                ", duracionHoras=" + duracionHoras;
+        return mostrarInformacion();
     }
 }
