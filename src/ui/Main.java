@@ -1,10 +1,7 @@
 package ui;
 
-import data.GestorServicios;
-
 /**
- * Clase principal de LlanquihueTourApp para la actividad de Semana 7.
- * Ejecuta el recorrido polimorfico de servicios turisticos.
+ * Clase principal de LlanquihueTourApp para la actividad de Semana 8.
  */
 public class Main {
 
@@ -14,9 +11,7 @@ public class Main {
      * @param args argumentos de linea de comandos
      */
     public static void main(String[] args) {
-        GestorServicios gestorServicios = new GestorServicios();
-
-        System.out.println("=== Servicios turisticos Llanquihue Tour ===");
-        gestorServicios.mostrarServicios();
+        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+        ventanaPrincipal.iniciar();
     }
 }
