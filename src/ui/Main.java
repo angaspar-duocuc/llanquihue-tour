@@ -1,7 +1,7 @@
 package ui;
 
 /**
- * Clase principal de LlanquihueTourApp para la actividad de Semana 8.
+ * Clase principal de LlanquihueTourApp para la Evaluacion Final Transversal.
  */
 public class Main {
 

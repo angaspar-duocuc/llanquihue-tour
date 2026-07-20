@@ -1,0 +1,5 @@
+# tipo;nombre;dato especifico;calle;comuna
+cliente;Ana Soto;ana.soto@correo.cl;Los Carrera 125;Llanquihue
+guia;Maria Gonzalez;Ingles;Vicente Perez Rosales 120;Llanquihue
+operador;Transportes del Lago;Minibus;Baquedano 450;Puerto Varas
+proveedor;Hostal Los Volcanes;Hostal;Los Volcanes 85;Frutillar

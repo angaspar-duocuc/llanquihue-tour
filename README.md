@@ -1,66 +1,103 @@
 # LlanquihueTourApp
 
+## Autor
+
+- **Nombre del estudiante:** Antonio Jesús Gaspar
+- **Sección:** DESARROLLO ORIENTADO A OBJETOS I_001A
+- **Carrera:** Analista Programador Computacional
+- **Sede:** Online
+- **Fecha de entrega:** 19-07-2026
+
 ## Descripcion
 
-Aplicacion basica en Java para la actividad de Semana 8 de Desarrollo Orientado a Objetos I. El sistema de Llanquihue Tour incorpora una interfaz comun, una jerarquia de recursos, una coleccion generica, validacion de tipos con `instanceof` y una interfaz grafica sencilla con `JOptionPane`.
+Prototipo modular en Java para la Evaluacion Final Transversal de Desarrollo Orientado a Objetos I. El sistema administra clientes, guias turisticos, operadores de transporte y proveedores de alojamiento de Llanquihue Tour mediante encapsulamiento, composicion, colecciones, herencia, polimorfismo, interfaces, validaciones y lectura desde un archivo `.txt`.
 
-## Objetivo de esta semana
+## Funcionalidades
 
-Integrar interfaces, herencia, polimorfismo, colecciones genericas y validacion de tipos. Las entidades `GuiaTuristico`, `Vehiculo` y `ColaboradorExterno` heredan de `RecursoAgencia`, implementan la interfaz `Registrable` y definen su propio metodo `mostrarResumen()`.
+- Carga automatica de cuatro categorias desde `src/data/entidades.txt`.
+- Registro manual mediante una interfaz grafica con `JOptionPane`.
+- Visualizacion y recorrido polimorfico de la coleccion.
+- Busqueda exacta de entidades por nombre.
+- Filtro por tipo: cliente, guia, operador o proveedor.
+- Validacion de datos con `DatoInvalidoException`.
+- Composicion entre `RecursoAgencia` y `Direccion`.
 
 ## Estructura del proyecto
 
 ```text
 src/
-├── data/
-│   ├── GestorEntidades.java
-│   └── GestorServicios.java
-├── model/
-│   ├── Registrable.java
-│   ├── RecursoAgencia.java
-│   ├── GuiaTuristico.java
-│   ├── Vehiculo.java
-│   ├── ColaboradorExterno.java
-│   ├── ServicioTuristico.java
-│   ├── RutaGastronomica.java
-│   ├── PaseoLacustre.java
-│   └── ExcursionCultural.java
-└── ui/
-    ├── Main.java
-    └── VentanaPrincipal.java
+|-- data/
+|   |-- entidades.txt
+|   |-- GestorEntidades.java
+|   `-- GestorServicios.java
+|-- model/
+|   |-- Registrable.java
+|   |-- RecursoAgencia.java
+|   |-- Direccion.java
+|   |-- Cliente.java
+|   |-- GuiaTuristico.java
+|   |-- OperadorTransporte.java
+|   |-- ProveedorAlojamiento.java
+|   |-- ServicioTuristico.java
+|   |-- RutaGastronomica.java
+|   |-- PaseoLacustre.java
+|   `-- ExcursionCultural.java
+|-- ui/
+|   |-- Main.java
+|   `-- VentanaPrincipal.java
+`-- utils/
+    |-- DatoInvalidoException.java
+    `-- LectorEntidades.java
 ```
 
-## Clases e interfaces utilizadas
+## Clases principales
 
-- `Registrable`: interfaz que declara el metodo `mostrarResumen()`.
-- `RecursoAgencia`: superclase con el atributo comun `nombre`.
-- `GuiaTuristico`: subclase registrable que incorpora el idioma principal.
-- `Vehiculo`: subclase registrable que incorpora la patente.
-- `ColaboradorExterno`: subclase registrable que incorpora la especialidad.
-- `GestorEntidades`: administra un `ArrayList<Registrable>`, recorre sus objetos y diferencia sus tipos mediante `instanceof`.
-- `VentanaPrincipal`: interfaz grafica basica creada con `JOptionPane` para ingresar y visualizar entidades.
-- `Main`: clase principal que inicia la interfaz grafica.
+- `Registrable`: interfaz comun que declara `getNombre()` y `mostrarResumen()`.
+- `RecursoAgencia`: superclase con los datos comunes y una `Direccion` por composicion.
+- `Direccion`: representa la calle y comuna de cada entidad.
+- `Cliente`: entidad registrable que incorpora el correo.
+- `GuiaTuristico`: entidad registrable que incorpora el idioma.
+- `OperadorTransporte`: entidad registrable que incorpora el tipo de transporte.
+- `ProveedorAlojamiento`: entidad registrable que incorpora el tipo de alojamiento.
+- `GestorEntidades`: administra el `ArrayList<Registrable>` y permite agregar, recorrer, buscar y filtrar.
+- `LectorEntidades`: convierte las lineas del archivo externo en objetos.
+- `VentanaPrincipal`: permite utilizar las funcionalidades mediante `JOptionPane`.
+- `Main`: punto de entrada de la aplicacion.
 
-Las clases de servicios turisticos desarrolladas en las semanas anteriores se mantienen como parte de la continuidad del proyecto.
+## Formato del archivo de datos
 
-## Funcionamiento de la interfaz grafica
+El archivo utiliza cinco valores separados por punto y coma:
 
-El menu permite:
+```text
+tipo;nombre;dato especifico;calle;comuna
+```
 
-1. Ingresar un guia turistico.
-2. Ingresar un vehiculo.
-3. Ingresar un colaborador externo.
-4. Mostrar el resumen de las entidades registradas.
+Los tipos permitidos son `cliente`, `guia`, `operador` y `proveedor`.
+
+## Opciones de la aplicacion
+
+1. Ingresar un cliente.
+2. Ingresar un guia turistico.
+3. Ingresar un operador de transporte.
+4. Ingresar un proveedor de alojamiento.
+5. Mostrar todas las entidades.
+6. Buscar una entidad por nombre.
+7. Filtrar entidades por tipo.
 0. Salir del programa.
 
-## Instrucciones para ejecutar en IntelliJ IDEA
+## Instrucciones para clonar y ejecutar en IntelliJ IDEA
 
-1. Abrir IntelliJ IDEA.
-2. Seleccionar `Open`.
-3. Abrir la carpeta `LlanquihueTourApp`.
-4. Abrir el archivo `src/ui/Main.java`.
-5. Ejecutar la clase `ui.Main` desde el boton verde de IntelliJ IDEA.
-6. Utilizar el menu de `JOptionPane` para ingresar y visualizar entidades.
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/angaspar-duocuc/llanquihue-tour.git
+```
+
+2. Abrir IntelliJ IDEA y seleccionar `Open`.
+3. Abrir la carpeta `llanquihue-tour`.
+4. Abrir `src/ui/Main.java`.
+5. Ejecutar `ui.Main` desde el boton verde de IntelliJ IDEA.
+6. Utilizar el menu de `JOptionPane` para gestionar las entidades.
 
 ## Repositorio
 
